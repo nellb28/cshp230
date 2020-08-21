@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using ContactsService.Models;
 using System.Collections;
@@ -10,7 +8,7 @@ using System.Security.Cryptography;
 
 namespace ContactsService.Controllers
 {
-    [Route("api/[controller]")]
+	[Route("api/[controller]")]
     [ApiController]
     public class ContactsController : ControllerBase
     {
@@ -54,8 +52,12 @@ namespace ContactsService.Controllers
             if (temp != null)
             {
                 temp.Email = value.Email;
-                temp.Password = value.Password;
+                temp.Password = saltPassword(value.Password);
                 temp.DateModified = DateTime.Now;
+            }
+            else 
+            {
+                NotFound();
             }
         }
 
@@ -63,8 +65,8 @@ namespace ContactsService.Controllers
         [HttpDelete("{id}")]
         public void Delete(int id)
         {
-            var temp = contacts.FirstOrDefault(x => x.Id == id);
-            temp = null;
+            int index = contacts.FindIndex(contacts => contacts.Id == id);
+            contacts.RemoveAt(index);
         }
 
 
