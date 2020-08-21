@@ -65,8 +65,7 @@ namespace ContactsService.Controllers
         [HttpDelete("{id}")]
         public void Delete(int id)
         {
-            int index = contacts.FindIndex(contacts => contacts.Id == id);
-            contacts.RemoveAt(index);
+            contacts.RemoveAll(x => x.Id == id);
         }
 
 
