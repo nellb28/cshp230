@@ -1,0 +1,5 @@
+8/13/2020 7:41:14 PM : Elapsed=00:00:06.8546879
+8/13/2020 7:43:32 PM : Elapsed=00:00:00.0063131
+8/13/2020 8:00:07 PM : Elapsed=HelloWorldService.Controllers.ContactsController
+8/13/2020 8:01:09 PM : HelloWorldService.Controllers.ContactsController GET Elapsed=00:00:12.8484913
+8/13/2020 8:01:11 PM : HelloWorldService.Controllers.ErrorController GET Elapsed=00:00:00.0097535

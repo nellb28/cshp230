@@ -1,0 +1,60 @@
+﻿@{
+    Layout = "~/Views/_BasicLayout.cshtml";
+}
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <style>
+        .btn a {
+            color: white;
+            text-decoration: none;
+        }
+
+        body {
+            background-color: #f1f1f1;
+        }
+    </style>
+</head>
+<body>
+    <div class="text-center">
+        <h2>The party is tonight.</h2>
+
+        @Html.Action("IncrementCount")
+
+        @Html.ActionLink("Login", "Login")
+        @Html.ActionLink("Logoff", "Logoff")
+        @Html.Action("DisplayLoginName")
+
+        <h3>And you're invited</h3>
+
+        <div class="btn btn-success">
+            @Html.ActionLink("RSVP Now", "RsvpForm")
+        </div>
+
+        <div class="btn btn-success">
+            @Html.ActionLink("View Product", "Product")
+        </div>
+
+        <div class="btn btn-success">
+            @Html.ActionLink("View Products", "Products")
+        </div>
+
+        <div class="btn btn-success">
+            @Html.ActionLink("Set Cookie", "SetCookie")
+        </div>
+
+        <div class="btn btn-success">
+            @Html.ActionLink("Logout", "LogOut", "Account")
+        </div>
+
+        <div class="btn btn-success">
+            @Html.ActionLink("Secure Notes", "Notes")
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,43 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+</head>
+<body>
+    <header><table>
+                <tr>
+                    <td>
+                        <div class="btn btn-info">
+                            @Html.ActionLink("Home", "Index")
+                        </div>
+                    </td>
+                    <td>
+                        <div class="btn btn-info">
+                            @Html.ActionLink("About", "Products")
+                        </div>
+                    </td>
+                    <td>
+                        <div class="btn btn-info">
+                            @Html.ActionLink("Contact", "Index")
+                        </div>
+                    </td>
+                </tr>
+     </table></header>
+
+    <h1>The Learning Center</h1>
+
+    @if (!string.IsNullOrEmpty(User.Identity.Name))
+    {
+<p>Logged in as: @User.Identity.Name</p>}
+
+    @if (HttpContext.Current.Session["User"] != null)
+    {
+<p>Logged in as: @(((HelloWorld.Models.User)HttpContext.Current.Session["User"]).Email)</p>}
+
+    <div style="padding:20px; border: solid medium black; font-size: 20pt">
+        @RenderBody()
+    </div>
+</body>
+</html>

@@ -1,0 +1,23 @@
+﻿@model HelloWorld.Models.Product[]
+
+@{
+    ViewBag.MyLittleTitle = "Little Products";
+    Layout = "~/Views/_BasicLayout.cshtml";
+}
+
+@if (Model.Length > 0)
+{
+    <table>
+        @foreach (var product in Model)
+        {
+            <tr>
+                <td>@product.Name</td>
+                <td>@product.Price</td>
+            </tr>
+        }
+    </table>
+}
+else
+{
+    <h2>No product data found.</h2>
+}
