@@ -8,10 +8,12 @@ namespace HelloWorld.Controllers
 	public class HomeController : Controller
     {
         private IProductRepository productRepository;
+        private IUserRepository userRepository;
 
-        public HomeController(IProductRepository productRepository)
+        public HomeController(IProductRepository productRepository, IUserRepository userRepository)
         {
             this.productRepository = productRepository;
+            this.userRepository = userRepository;
         }
 
         //private IUserRepository userRepository;
@@ -55,21 +57,29 @@ namespace HelloWorld.Controllers
         {
             if (ModelState.IsValid)
             {
+                //TODO - Refactor this!
                 //Session[User] = User;
-                System.Web.Security.FormsAuthentication.SetAuthCookie(loginModel.Email, loginModel.RememberMe);
-                if (returnUrl != null)
+                var user = userRepository.LogIn(loginModel.Email, loginModel.Password);
+                if (user != null)
                 {
-                    return Redirect(returnUrl);
+                    System.Web.Security.FormsAuthentication.SetAuthCookie(loginModel.Email, loginModel.RememberMe);
+                    if (returnUrl != null)
+                    {
+                        return Redirect(returnUrl);
+                    }
+                    else
+                    {
+                        return Redirect("~/");
+                    }
                 }
-                else 
+                else
                 {
-                    return Redirect("~/");
-                }               
+                    ModelState.AddModelError("", "The user name or password provided is incorrect.");
+                }
             }
-            else
-            {
-                return View(loginModel);
-            }
+
+            return View(loginModel);
+           
         }
         //[HttpPost]
         //public ActionResult LogOn(LogOnModel model, string returnUrl)
