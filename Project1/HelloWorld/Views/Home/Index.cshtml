@@ -21,40 +21,35 @@
     </style>
 </head>
 <body>
-    <div class="text-center">
-        <h2>The party is tonight.</h2>
-
-        @Html.Action("IncrementCount")
-
-        @Html.ActionLink("Login", "Login")
-        @Html.ActionLink("Logoff", "Logoff")
-        @Html.Action("DisplayLoginName")
-
-        <h3>And you're invited</h3>
-
-        <div class="btn btn-success">
-            @Html.ActionLink("RSVP Now", "RsvpForm")
-        </div>
-
-        <div class="btn btn-success">
-            @Html.ActionLink("View Product", "Product")
-        </div>
-
-        <div class="btn btn-success">
-            @Html.ActionLink("View Products", "Products")
-        </div>
-
-        <div class="btn btn-success">
-            @Html.ActionLink("Set Cookie", "SetCookie")
-        </div>
-
-        <div class="btn btn-success">
-            @Html.ActionLink("Logout", "LogOut", "Account")
-        </div>
-
-        <div class="btn btn-success">
-            @Html.ActionLink("Secure Notes", "Notes")
+    <div>
+        <h1>The Learning Center</h1>
+        <h4>The place for technology classes.</h4>
+        <div class="btn btn-warning">
+            @Html.ActionLink("Learn more >>", "Index")
         </div>
     </div>
+    <br />
+    <br />
+
+    <div class="text-center">
+
+    </div>
+    <table>
+        <tr>
+            <td>@Html.ActionLink("Class List", "Products")</td>
+            <td style="padding:20px"></td>
+            <td>@Html.ActionLink("Your enrolled classes", "enrollments")</td>
+            <td style="padding:20px"></td">
+            <td>@Html.ActionLink("Enroll in a class", "enrollinclass")</td>
+        </tr>
+        <tr>
+            <td><h6>See all of our class offerings</h6></td>
+            <td style="padding:20px"></td>
+            <td><h6>See the classes you are enrolled in</h6></td>
+            <td style="padding:20px"></td>
+            <td><h6>Take a new class</h6></td>
+        </tr>
+    </table>
+
 </body>
 </html>

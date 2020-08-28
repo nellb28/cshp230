@@ -6,7 +6,7 @@ namespace HelloWorld.Models
     {
         [Required(ErrorMessage = "Please enter your email address")]
         [EmailAddress]
-        [Display(Name = "User name")]
+        [Display(Name = "Email")]
         public string Email { get; set; }
 
         [Required(ErrorMessage = "Please enter your password")]

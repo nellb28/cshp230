@@ -27,25 +27,21 @@ namespace HelloWorld.Controllers
             return View();
         }
 
-        //TODO - DELETE
-        //public ActionResult Login()
-        //{
-        //    return View();
-        //}
-        //
-        //[HttpPost]
-        //public ActionResult Login(LoginModel loginModel)
-        //{
-        //    if (ModelState.IsValid)
-        //    {
-        //        Session["Email"] = loginModel.Email;
-        //        return RedirectToAction("Classlist");
-        //    }
-        //    else
-        //    {
-        //        return View();
-        //    }
-        //}
+
+        [HttpPost]
+        public ActionResult Register(UserModel userModel)
+        {
+            if (ModelState.IsValid)
+            {
+                //userModel.Email =  
+
+                return RedirectToAction("Classlist");
+            }
+            else
+            {
+                return View();
+            }
+        }
 
         public ActionResult LogOn()
         {
@@ -57,7 +53,6 @@ namespace HelloWorld.Controllers
         {
             if (ModelState.IsValid)
             {
-                //TODO - Refactor this!
                 //Session[User] = User;
                 var user = userRepository.LogIn(loginModel.Email, loginModel.Password);
                 if (user != null)

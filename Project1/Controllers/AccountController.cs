@@ -8,13 +8,6 @@ namespace HelloWorld.Controllers
 {
     public class AccountController : Controller
     {
-        //private IUserRepository userRepository;
-        //
-        //public AccountController(IUserRepository userRepository)
-        //{
-        //    this.userRepository = userRepository;
-        //}
-
         public ActionResult LogOut()
         {
             Session["User"] = null;
