@@ -25,10 +25,9 @@ namespace HelloWorld
                 {
                     var items = new[]
                     {
-                        new Product{ Name = "Baseball"},
-                        new Product{ Name="Football"},
-                        new Product{ Name="Tennis ball"} ,
-                        new Product{ Name="Golf ball"},
+                        new Product{ Name = "ACCY 201",  Description="Introduction to accounting", Price=500},
+                        new Product{ Name = "CS 230",  Description="ASP .NET Programming", Price=1000},
+                        new Product{ Name = "CALC 204",  Description="Differential Equations", Price=1000}
                     };
 
                     // Absolute Expiration

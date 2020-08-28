@@ -6,49 +6,55 @@
     <title>@ViewBag.Title</title>
 </head>
 <body>
-    <header><table>
-                <tr>
-                    <td>
-                        <div class="btn btn-info">
-                            @Html.ActionLink("Home", "Index")
-                        </div>
-                    </td>
-                    <td>
-                        <div class="btn btn-info">
-                            @Html.ActionLink("About", "Products")
-                        </div>
-                    </td>
-                    <td>
-                        <div class="btn btn-info">
-                            @Html.ActionLink("Contact", "Index")
-                        </div>
-                    </td>
-                    <td style="padding:50px"></td>
-                    <td>
-                        <div class="btn btn-info">
-                            @Html.ActionLink("Register", "Register")
-                        </div>
-                    </td>
-                    <td>
-                        <div class="btn btn-info">
-                            @Html.ActionLink("Log in", "Login")
-                        </div>
-                    </td>
-                </tr>
-     </table></header>
+    <header>
+        <table>
+            <tr>
+                <td>
+                    <div class="btn btn-info">
+                        @Html.ActionLink("Home", "Index")
+                    </div>
+                </td>
+                <td>
+                    <div class="btn btn-info">
+                        @Html.ActionLink("About", "Index")
+                    </div>
+                </td>
+                <td>
+                    <div class="btn btn-info">
+                        @Html.ActionLink("Contact", "Index")
+                    </div>
+                </td>
+                <td style="padding:50px"></td>
+                <td>
+                    <div class="btn btn-info">
+                        @Html.ActionLink("Register", "Register")
+                    </div>
+                </td>
+                <td>
+                    <div class="btn btn-info">
+                        @if (!string.IsNullOrEmpty(User.Identity.Name))
+                        {
+            @Html.ActionLink("Log Out", "LogOut") }
+        else
+        {
+@Html.ActionLink("Log in", "LogOn")}
+                    </div>
+                </td>
+                <td>
+                </td>
+            </tr>
+        </table>
+    </header>
 
- 
+   
     @if (!string.IsNullOrEmpty(User.Identity.Name))
     {
-<p>Logged in as: @User.Identity.Name</p>}
-
-    @if (HttpContext.Current.Session["User"] != null)
-    {
-<p>Logged in as: @(((HelloWorld.Models.User)HttpContext.Current.Session["User"]).Email)</p>}
+        <p>**Logged in as: @User.Identity.Name**</p>
+    }
 
     <div style="padding:20px; border: solid medium black; font-size: 20pt">
         @RenderBody()
     </div>
-    <footer>&#169;2020 - The Learning Center</footer>
+    <footer><br />&#169;2020 - The Learning Center</footer>
 </body>
 </html>

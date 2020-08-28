@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Web.Mvc;
 
+//TODO - use this to fix login issues
 namespace HelloWorld.Controllers
 {
     public class AccountController : Controller
@@ -31,11 +32,11 @@ namespace HelloWorld.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = userRepository.LogIn(model.UserName, model.Password);
+                var user = userRepository.LogIn(model.Email, model.Password);
                 if (user != null)
                 {
                     Session["User"] = user;
-                    System.Web.Security.FormsAuthentication.SetAuthCookie(model.UserName, model.RememberMe);
+                    System.Web.Security.FormsAuthentication.SetAuthCookie(model.Email, model.RememberMe);
                     return Redirect(returnUrl);
                 }
 

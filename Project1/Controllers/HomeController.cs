@@ -1,16 +1,11 @@
 ﻿using HelloWorld.Models;
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 using System.Web.UI;
 
 namespace HelloWorld.Controllers
 {
-    //[Logging]
-    //[AuthorizeIPAddress]
-    public class HomeController : Controller
+	public class HomeController : Controller
     {
         private IProductRepository productRepository;
 
@@ -19,83 +14,69 @@ namespace HelloWorld.Controllers
             this.productRepository = productRepository;
         }
 
-        [Authorize]
-        [IsAdministrator]
-        public ActionResult Notes()
+        public ActionResult Register()
         {
             return View();
         }
 
-        public ActionResult SetCookie()
-        {
-            // Name the cookie as MyCookie for later retrieval
-            var cookie = new HttpCookie("MyCookie");
+        //TODO - DELETE
+        //public ActionResult Login()
+        //{
+        //    return View();
+        //}
+        //
+        //[HttpPost]
+        //public ActionResult Login(LoginModel loginModel)
+        //{
+        //    if (ModelState.IsValid)
+        //    {
+        //        Session["Email"] = loginModel.Email;
+        //        return RedirectToAction("Classlist");
+        //    }
+        //    else
+        //    {
+        //        return View();
+        //    }
+        //}
 
-            // This cookie will expire about one minute, depends on the browser
-            cookie.Expires = DateTime.Now.AddMinutes(1);
-
-            // This cookie will have a simple string value of myUserName
-            // but it can be any kind of object.
-            cookie.Value = "myUserName";
-
-            // Add the cookie to the response to send it to the browser
-            HttpContext.Response.Cookies.Add(cookie);
-
-            return View(cookie);
-        }
-
-        public ActionResult GetCookie()
-        {
-            return View(HttpContext.Request.Cookies["MyCookie"]);
-        }
-
-        public ActionResult Login()
+        public ActionResult LogOn()
         {
             return View();
         }
 
         [HttpPost]
-        public ActionResult Login(LoginModel loginModel)
+        public ActionResult LogOn(LoginModel loginModel, string returnUrl)
         {
-            Session["UserName"] = loginModel.UserName;
-            return RedirectToAction("Index");
-        }
-
-        public ActionResult Logoff()
-        {
-            Session["UserName"] = null;
-            return RedirectToAction("Index");
-        }
-
-        public PartialViewResult DisplayLoginName()
-        {
-            return new PartialViewResult();
-        }
-
-        public PartialViewResult IncrementCount()
-        {
-            int count = 0;
-
-            // Check if MyCount exists
-            if (Session["MyCount"] != null)
+            if (ModelState.IsValid)
             {
-                count = (int)Session["MyCount"];
-                count++;
+                //Session[User] = User;
+                System.Web.Security.FormsAuthentication.SetAuthCookie(loginModel.Email, loginModel.RememberMe);
+                if (returnUrl != null)
+                {
+                    return Redirect(returnUrl);
+                }
+                else 
+                {
+                    return Redirect("~/");
+                }               
             }
-
-            // Create the MyCount session variable
-            Session["MyCount"] = count;
-
-            return new PartialViewResult();
+            else
+            {
+                return View(loginModel);
+            }
         }
+
+        public ActionResult LogOut()
+        {
+            //Session[User] = null;
+            System.Web.Security.FormsAuthentication.SignOut();
+            return Redirect("~/");
+        }  
 
         // GET: Home
         public ActionResult Index()
         {
-            //int x = 1;
-            //x = x / (x - 1);
-
-            return View();
+                return View();
         }
 
         public ActionResult Error()
@@ -114,23 +95,11 @@ namespace HelloWorld.Controllers
             return View(productRepository.Products);
         }
 
-        [HttpGet]
-        public ActionResult RsvpForm()
+        [Authorize]
+        [OutputCache(Duration = 15, Location = OutputCacheLocation.Any, VaryByParam = "none")]
+        public ActionResult Classlist()
         {
-            return View();
-        }
-
-        [HttpPost]
-        public ActionResult RsvpForm(Models.GuestResponse guestResponse)
-        {
-            if (ModelState.IsValid)
-            {
-                return View("Thanks", guestResponse);
-            }
-            else
-            {
-                return View();
-            }
+            return View(productRepository.Products);
         }
     }
 }
