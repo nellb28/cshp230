@@ -1,4 +1,4 @@
-﻿@model HelloWorld.Models.IndexModel
+﻿@model HelloWorld.Models.Product[]
 
 @{ Layout = "~/Views/_BasicLayout.cshtml"; }
 <!DOCTYPE html>
@@ -26,17 +26,23 @@
 <table>
     <tr>
         <th>Name</th>
+        <td style="padding-right: 30px"></td>
         <th>Description</th>
+        <td style="padding-right: 30px"></td>
         <th>Price</th>
-
-        @foreach (var category in )
+        @foreach (var product in Model)
         {
 <tr>
-    <td>@product.Name</td>
-    <td>@product.Description</td>
-    <td>@product.Price</td>
-</tr>}
-    </table> }
-                else
-                {
-    <h2>No product data found.</h2>}
+        <td>@product.Name</td>
+        <td style="padding-right: 10px"></td>
+        <td>@product.Description</td>
+        <td style="padding-right: 10px"></td>
+        <td>@product.Price</td>
+    </tr>
+}
+    </table>
+ }
+else
+{
+<h2>No product data found.</h2>
+}

@@ -8,12 +8,12 @@ namespace HelloWorld.Controllers
 {
     public class AccountController : Controller
     {
-        private IUserRepository userRepository;
-
-        public AccountController(IUserRepository userRepository)
-        {
-            this.userRepository = userRepository;
-        }
+        //private IUserRepository userRepository;
+        //
+        //public AccountController(IUserRepository userRepository)
+        //{
+        //    this.userRepository = userRepository;
+        //}
 
         public ActionResult LogOut()
         {
@@ -32,10 +32,10 @@ namespace HelloWorld.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = userRepository.LogIn(model.Email, model.Password);
-                if (user != null)
+                //var user = userRepository.LogIn(model.Email, model.Password);
+                if (model.Email!= null)
                 {
-                    Session["User"] = user;
+                    Session["User"] = model.Email;
                     System.Web.Security.FormsAuthentication.SetAuthCookie(model.Email, model.RememberMe);
                     return Redirect(returnUrl);
                 }

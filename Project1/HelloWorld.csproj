@@ -122,41 +122,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
-    <EntityDeploy Include="Model1.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>Model1.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="IndexModel.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>IndexModel.edmx</DependentUpon>
-      <LastGenOutput>IndexModel.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="IndexModel.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>IndexModel.edmx</DependentUpon>
-      <LastGenOutput>IndexModel.cs</LastGenOutput>
-    </Content>
-    <Content Include="Model1.edmx.diagram">
-      <DependentUpon>Model1.edmx</DependentUpon>
-    </Content>
-    <EntityDeploy Include="IndexModel.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>IndexModel.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="IndexModel.edmx.diagram">
-      <DependentUpon>IndexModel.edmx</DependentUpon>
-    </Content>
     <None Include="Scripts\jquery-1.9.0.intellisense.js" />
-    <Content Include="Model1.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>Model1.Context.cs</LastGenOutput>
-      <DependentUpon>Model1.edmx</DependentUpon>
-    </Content>
-    <Content Include="Model1.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Model1.edmx</DependentUpon>
-      <LastGenOutput>Model1.cs</LastGenOutput>
-    </Content>
     <Content Include="sample.html" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -172,48 +138,13 @@
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="AuthorizeIPAddressAttribute.cs" />
-    <Compile Include="Class.cs">
-      <DependentUpon>IndexModel.tt</DependentUpon>
-    </Compile>
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="IndexModel.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>IndexModel.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="IndexModel.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>IndexModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="IndexModel.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>IndexModel.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="Model1.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Model1.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model1.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model1.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Model1.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="User.cs">
-      <DependentUpon>IndexModel.tt</DependentUpon>
-    </Compile>
+    <Compile Include="Models\User.cs" />
     <Compile Include="_DELETEIsAdministratorAttribute.cs" />
     <Compile Include="LoggingAttribute.cs" />
     <Compile Include="Models\GuestResponse.cs" />
@@ -222,17 +153,14 @@
     <Compile Include="Models\Classes.cs" />
     <Compile Include="Models\Product.cs" />
     <Compile Include="Models\Student.cs" />
-    <Compile Include="Models\_DELETEUser.cs" />
     <Compile Include="ProductRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="UserRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\web.config" />
     <None Include="packages.config" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\_DELETERsvpForm.cshtml" />
-    <Content Include="Views\Home\Thanks.cshtml" />
     <Content Include="Scripts\jquery-1.9.0.min.map" />
     <Content Include="Views\Home\IncrementCount.cshtml" />
     <Content Include="Views\Home\_DELETE_Login.cshtml" />

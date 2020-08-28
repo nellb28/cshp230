@@ -3,10 +3,10 @@
 namespace HelloWorld.Controllers
 {
     public class ErrorController : Controller
-    {
-        public ActionResult Error()
-        {
-            return View();
-        }
+    {//TODO - remove this
+        //public ActionResult Error()
+        //{
+        //    return View();
+        //}
     }
 }
