@@ -25,17 +25,11 @@ namespace HelloWorld
                 {
                     var items = new[]
                     {
-                        new Product{ Name = "ACCY 201",  Description="Introduction to accounting", Price=500},
-                        new Product{ Name = "CS 230",  Description="ASP .NET Programming", Price=1000},
-                        new Product{ Name = "CALC 204",  Description="Differential Equations", Price=1000}
+                        new Product{ Name = "C#",  Description="Learn C#", Price=200},
+                        new Product{ Name = "ASP .NET MVC",  Description="Learn how to create websites", Price=250},
+                        new Product{ Name = "Android",  Description="Learn how to write Android applications", Price=500},
+                        new Product{ Name = "Design Patterns",  Description="Learn how to write Android applications", Price=300}
                     };
-
-                    // Absolute Expiration
-                    //HttpContext.Current.Cache.Insert("MyProducts",
-                    //                         items,
-                    //                         null,
-                    //                         DateTime.Now.AddSeconds(10),
-                    //                         Cache.NoSlidingExpiration);
 
                     // Sliding Expiration
                     HttpContext.Current.Cache.Insert("MyProducts",

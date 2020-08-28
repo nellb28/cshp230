@@ -5,7 +5,7 @@ namespace HelloWorld.Models
     public class UserModel
     {
         [Required]
-        [Display(Name = "Email Address")]
+        [Display(Name = "Email")]
         public string Email { get; set; }
 
         [Required]

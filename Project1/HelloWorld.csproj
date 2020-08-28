@@ -123,13 +123,11 @@
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <None Include="Scripts\jquery-1.9.0.intellisense.js" />
-    <Content Include="sample.html" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-1.9.0.js" />
     <Content Include="Scripts\jquery-1.9.0.min.js" />
     <Content Include="Web.config" />
-    <Content Include="Views\Home\Product.cshtml" />
     <Content Include="Views\Home\Products.cshtml" />
     <Content Include="Views\_BasicLayout.cshtml" />
     <Content Include="Views\_ViewStart.cshtml" />
@@ -137,20 +135,15 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="AuthorizeIPAddressAttribute.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\User.cs" />
     <Compile Include="Models\UserModel.cs" />
+    <Compile Include="Models\User.cs" />
     <Compile Include="UserRepository.cs" />
-    <Compile Include="_DELETEIsAdministratorAttribute.cs" />
-    <Compile Include="LoggingAttribute.cs" />
-    <Compile Include="Models\GuestResponse.cs" />
-    <Compile Include="Models\DeleteMe_LoginModel.cs" />
     <Compile Include="Models\LogOnModel.cs" />
     <Compile Include="Models\Classes.cs" />
     <Compile Include="Models\Product.cs" />
@@ -162,20 +155,10 @@
     <Content Include="Views\web.config" />
     <None Include="packages.config" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Home\_DELETERsvpForm.cshtml" />
     <Content Include="Scripts\jquery-1.9.0.min.map" />
-    <Content Include="Views\Home\IncrementCount.cshtml" />
-    <Content Include="Views\Home\_DELETE_Login.cshtml" />
-    <Content Include="Views\Home\DisplayLoginName.cshtml" />
-    <Content Include="Views\Home\SetCookie.cshtml" />
-    <Content Include="Views\Home\GetCookie.cshtml" />
-    <Content Include="Views\Home\Notes.cshtml" />
-    <Content Include="Views\DELETE_Account\LogOn.cshtml" />
     <Content Include="Views\Home\Register.cshtml" />
-    <Content Include="Views\Home\_DELETERegisterForm.cshtml" />
     <Content Include="Views\Home\Classlist.cshtml" />
     <Content Include="Views\Home\LogOn.cshtml" />
-    <Content Include="Views\Home\DELETE.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
