@@ -49,7 +49,7 @@ namespace HelloWorld.Controllers
         }
 
         [HttpPost]
-        public ActionResult LogOn(LoginModel loginModel, string returnUrl)
+        public ActionResult LogOn(LogOnModel loginModel, string returnUrl)
         {
             if (ModelState.IsValid)
             {
