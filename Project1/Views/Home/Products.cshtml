@@ -33,13 +33,18 @@
         @foreach (var product in Model)
         {
 <tr>
-        <td>@product.Name</td>
-        <td style="padding:25px"></td>
-        <td>@product.Description</td>
-        <td style="padding:25px"></td>
-        <td>@product.Price</td>
-    </tr>}
-    </table> }
-                else
-                {
-    <h2>No product data found.</h2>}
+    <td>@product.Name</td>
+    <td style="padding:25px"></td>
+    <td>@product.Description</td>
+    <td style="padding:25px"></td>
+    <td>@product.Price</td>
+</tr>
+}
+    </table>
+ }
+else
+{
+<h2>No product data found.</h2>
+}
+</body>
+</html>

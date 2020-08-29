@@ -160,7 +160,7 @@
     <Content Include="Views\Home\Classlist.cshtml" />
     <Content Include="Views\Home\LogOn.cshtml" />
     <Content Include="Views\Home\Enrollinclass.cshtml" />
-    <None Include="Views\Home\Enrollments.cshtml" />
+    <None Include="Views\Home\studentclasses.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

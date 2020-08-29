@@ -117,5 +117,12 @@ namespace HelloWorld.Controllers
         {
             return View(productRepository.Products);
         }
+
+        [Authorize]
+        [OutputCache(Duration = 15, Location = OutputCacheLocation.Any, VaryByParam = "none")]
+        public ActionResult StudentClasses()
+        {
+            return View(productRepository.Products);
+        }
     }
 }

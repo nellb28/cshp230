@@ -20,9 +20,9 @@
         }
     </style>
 </head>
-
-@if (Model.Length > 0)
-{
+<body>
+    @if (Model.Length > 0)
+    {
 <table>
     <tr>
         <th>Name</th>
@@ -38,11 +38,9 @@
     <td>@product.Description</td>
     <td style="padding:25px"></td>
     <td>@product.Price</td>
-</tr>
-}
-    </table>
- }
-else
-{
-<h2>No product data found.</h2>
-}
+</tr>}
+    </table> }
+                else
+                {
+    <h2>No product data found.</h2>}
+</body></html>
