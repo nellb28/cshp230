@@ -282,3 +282,5 @@ infrastructure/plans
 .vscode
 
 .*.cmd
+/Project1/UserClassRepository.cs
+/Project1
