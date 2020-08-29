@@ -16,12 +16,7 @@ namespace HelloWorld.Controllers
             this.userRepository = userRepository;
         }
 
-        //private IUserRepository userRepository;
-        //
-        //public HomeController(IUserRepository userRepository)
-        //{
-        //    this.userRepository = userRepository;
-        //}
+
         public ActionResult Register()
         {
             return View();
@@ -34,6 +29,7 @@ namespace HelloWorld.Controllers
             if (ModelState.IsValid)
             {
                 //userModel.Email =  
+                //userModel.Email = userRepository.
 
                 return RedirectToAction("Classlist");
             }
@@ -42,6 +38,7 @@ namespace HelloWorld.Controllers
                 return View();
             }
         }
+
 
         public ActionResult LogOn()
         {
@@ -55,6 +52,8 @@ namespace HelloWorld.Controllers
             {
                 //Session[User] = User;
                 var user = userRepository.LogIn(loginModel.Email, loginModel.Password);
+                //var temp = userRepository.Register(loginModel.Email, loginModel.Password);
+                //userRepository.t
                 if (user != null)
                 {
                     System.Web.Security.FormsAuthentication.SetAuthCookie(loginModel.Email, loginModel.RememberMe);

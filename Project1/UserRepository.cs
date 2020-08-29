@@ -2,11 +2,13 @@
 using HelloWorld.Models;
 using System.Collections.Generic;
 
+
 namespace HelloWorld
 {
     public interface IUserRepository
     {
         User LogIn(string email, string password);
+        //UserModel Register(string email, string password);
     }
 
     public class UserRepository : IUserRepository
@@ -31,5 +33,20 @@ namespace HelloWorld
             return Users.SingleOrDefault(t => t.Email.ToLower() == email.ToLower()
                                         && t.Password == password);
         }
+
+        //public UserModel Register(string email, string password)
+        //{
+        //    var user = DatabaseAccessor.Instance.User
+        //            .Add(new 
+        //            {
+        //                UserEmail = email,
+        //                UserHashedPassword = password
+        //            });
+        //    
+        //    DatabaseAccessor.Instance.SaveChanges();
+        //    
+        //    return new UserModel { Id = user.Entity.UserId, Name = user.Entity.UserEmail };
+        //    return new UserModel { Id = 103, Email = "lisa@test.com", Password = "password" };
+        //}
     }
 }
