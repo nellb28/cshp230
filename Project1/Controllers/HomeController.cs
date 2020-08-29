@@ -75,26 +75,7 @@ namespace HelloWorld.Controllers
             return View(loginModel);
            
         }
-        //[HttpPost]
-        //public ActionResult LogOn(LogOnModel model, string returnUrl)
-        //{
-        //    if (ModelState.IsValid)
-        //    {
-        //        var user = userRepository.LogIn(model.Email, model.Password);
-        //        if (user != null)
-        //        {
-        //            Session["User"] = user;
-        //            System.Web.Security.FormsAuthentication.SetAuthCookie(model.Email, model.RememberMe);
-        //            return Redirect(returnUrl);
-        //        }
-        //
-        //        ModelState.AddModelError("", "The user name or password provided is incorrect.");
-        //
-        //    }
-        //
-        //    return View(model);
-        //}
-
+       
         public ActionResult LogOut()
         {
             //Session[User] = null;
@@ -124,9 +105,15 @@ namespace HelloWorld.Controllers
             return View(productRepository.Products);
         }
 
-        [Authorize]
         [OutputCache(Duration = 15, Location = OutputCacheLocation.Any, VaryByParam = "none")]
         public ActionResult Classlist()
+        {
+            return View(productRepository.Products);
+        }
+
+        [Authorize]
+        [OutputCache(Duration = 15, Location = OutputCacheLocation.Any, VaryByParam = "none")]
+        public ActionResult EnrollInClass()
         {
             return View(productRepository.Products);
         }

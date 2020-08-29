@@ -147,7 +147,7 @@
     <Compile Include="Models\LogOnModel.cs" />
     <Compile Include="Models\Classes.cs" />
     <Compile Include="Models\Product.cs" />
-    <Compile Include="Models\Student.cs" />
+    <Compile Include="Models\enrollments.cs" />
     <Compile Include="ProductRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -159,6 +159,8 @@
     <Content Include="Views\Home\Register.cshtml" />
     <Content Include="Views\Home\Classlist.cshtml" />
     <Content Include="Views\Home\LogOn.cshtml" />
+    <Content Include="Views\Home\Enrollinclass.cshtml" />
+    <None Include="Views\Home\Enrollments.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

@@ -26,19 +26,19 @@
 <table>
     <tr>
         <th>Name</th>
-        <td style="padding-right: 30px"></td>
+        <td style="padding:25px"></td>
         <th>Description</th>
-        <td style="padding-right: 30px"></td>
+        <td style="padding:25px"></td>
         <th>Price</th>
         @foreach (var product in Model)
         {
 <tr>
-        <td>@product.Name</td>
-        <td style="padding-right: 10px"></td>
-        <td>@product.Description</td>
-        <td style="padding-right: 10px"></td>
-        <td>@product.Price</td>
-    </tr>
+    <td>@product.Name</td>
+    <td style="padding:25px"></td>
+    <td>@product.Description</td>
+    <td style="padding:25px"></td>
+    <td>@product.Price</td>
+</tr>
 }
     </table>
  }
