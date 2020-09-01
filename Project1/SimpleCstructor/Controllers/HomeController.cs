@@ -23,7 +23,7 @@ namespace SimpleCstructor.Controllers
 		{
 			if (Session["User"] == null)
 			{ 
-				return  RedirectToAction("LogOn");
+				return  RedirectToAction("LogOn", new { returnUrl = "~/Home/StudentClasses" });
 			}
 
 			var tempUser = (User)Session["User"];
@@ -38,7 +38,7 @@ namespace SimpleCstructor.Controllers
 			return View();
 		}
 
-		// POST: Hoome/Register
+		// POST: Home/Register
 		// To protect from overposting attacks, enable the specific properties you want to bind to, for 
 		// more details see https://go.microsoft.com/fwlink/?LinkId=317598.
 		[HttpPost]
@@ -127,12 +127,32 @@ namespace SimpleCstructor.Controllers
 		{
 			if (Session["User"] == null)
 			{
-				return RedirectToAction("LogOn");
+				return RedirectToAction("LogOn", new { returnUrl = "~/Home/EnrollInClass" });
 			}
 			return View(db.Classes.ToList());
-			//return View("Classlist", db.Classes.Where(t => t.Users
+			//TODO - write querry to filter list where you eliminate 
+			//classes that have already been enrolled
+			//return View(db.Classes.Where(t => t.Users
 			//	.Any(x => x.UserId == tempUser.UserId))
 			//	.ToList());
+		}
+
+		// POST: Home/Enroll
+		// To protect from overposting attacks, enable the specific properties you want to bind to, for 
+		// more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+		[HttpPost]
+		[ValidateAntiForgeryToken]
+		public ActionResult EnrollInClass(int EnrollInClass)
+		{
+			if (ModelState.IsValid)
+			{
+				var tempUserID = ((User)Session["User"]).UserId;
+				db.Users.Find(tempUserID).Classes.Add(db.Classes.Find(EnrollInClass));
+				db.SaveChanges();
+				return RedirectToAction("StudentClasses");
+			}
+
+			return View("EnrollInClass");
 		}
 	}
 }

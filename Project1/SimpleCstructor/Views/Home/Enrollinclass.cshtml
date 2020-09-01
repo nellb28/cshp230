@@ -1,0 +1,60 @@
+﻿@model IEnumerable<SimpleCstructor.Class>
+
+@{ Layout = "~/Views/_BasicLayout.cshtml"; }
+<!DOCTYPE html>
+
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Enroll In Class</title>
+
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <style>
+        .btn a {
+            color: white;
+            text-decoration: none;
+        }
+
+        body {
+            background-color: #f1f1f1;
+        }
+    </style>
+    <h1>
+        Enroll In Class
+    </h1>
+</head>
+<body>
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        if (Model != null)
+        {
+            <table>
+                <tr>
+
+                    <td>
+                        <div class="form-group">
+                            <select class="form-control" id="EnrollInClass" name="EnrollInClass">
+                                @foreach (var classItem in Model)
+                                {
+                                    <option value=@classItem.ClassId>@classItem.ClassDescription</option>
+                                }
+                            </select>
+                            <span class="text-danger field-validation-valid" data-valmsg-for="EnrollInClass" data-valmsg-replace="true"></span>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="form-group">
+                            <input type="submit" value="Add Class" class="btn btn-success" />
+                        </div>
+                    </td>
+                </tr>
+            </table> }
+        else
+        { <table>
+                <tr> No classes found.</tr>
+            </table>}
+    }
+    </body>
+</html>
+
