@@ -156,9 +156,7 @@
     <Compile Include="Class.cs">
       <DependentUpon>CstructorClass.tt</DependentUpon>
     </Compile>
-    <Compile Include="Controllers\ClassesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\UsersController.cs" />
     <Compile Include="CstructorClass.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
