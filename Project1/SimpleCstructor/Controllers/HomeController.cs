@@ -17,10 +17,15 @@ namespace SimpleCstructor.Controllers
 			return View(db.Classes.ToList());
 		}
 
-		
+
 		// GET: Home/StudentClasses
 		public ActionResult StudentClasses()
 		{
+			if (Session["User"] == null)
+			{ 
+				return  RedirectToAction("LogOn");
+			}
+
 			var tempUser = (User)Session["User"];
 			return View("Classlist", db.Classes.Where(t => t.Users
 							.Any(x => x.UserId == tempUser.UserId))
@@ -116,6 +121,18 @@ namespace SimpleCstructor.Controllers
 			ViewBag.Message = "Your contact page.";
 
 			return View();
+		}
+
+		public ActionResult EnrollInClass()
+		{
+			if (Session["User"] == null)
+			{
+				return RedirectToAction("LogOn");
+			}
+			return View(db.Classes.ToList());
+			//return View("Classlist", db.Classes.Where(t => t.Users
+			//	.Any(x => x.UserId == tempUser.UserId))
+			//	.ToList());
 		}
 	}
 }
