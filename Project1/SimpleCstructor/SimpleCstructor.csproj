@@ -240,7 +240,7 @@
     <Content Include="Views\_BasicLayout.cshtml" />
     <Content Include="Views\Home\LogOn.cshtml" />
     <Content Include="Views\Home\Enrollinclass.cshtml" />
-    <Content Include="Views\Home\Studentclasslist.cshtml" />
+    <Content Include="Views\Home\Studentclasses.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

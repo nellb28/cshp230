@@ -27,7 +27,7 @@ namespace SimpleCstructor.Controllers
 			}
 
 			var tempUser = (User)Session["User"];
-			return View("Classlist", db.Classes.Where(t => t.Users
+			return View("Studentclasses", db.Classes.Where(t => t.Users
 							.Any(x => x.UserId == tempUser.UserId))
 							.ToList());
 		}
