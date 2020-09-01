@@ -1,0 +1,55 @@
+﻿@{
+    Layout = "~/Views/_BasicLayout.cshtml";
+}
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <style>
+        .btn a {
+            color: white;
+            text-decoration: none;
+        }
+
+        body {
+            background-color: #f1f1f1;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <h1>The Learning Center</h1>
+        <h4>The place for technology classes.</h4>
+        <div class="btn btn-warning">
+            @Html.ActionLink("Learn more >>", "Index")
+        </div>
+    </div>
+    <br />
+    <br />
+
+    <div class="text-center">
+
+    </div>
+    <table>
+        <tr>
+            <td>@Html.ActionLink("Class List", "Classlist")</td>
+            <td style="padding:20px"></td>
+            <td>@Html.ActionLink("Your enrolled classes", "StudentClasses")</td>
+            <td style="padding:20px"></td">
+            <td>@Html.ActionLink("Enroll in a class", "Enrollinclass")</td>
+        </tr>
+        <tr>
+            <td><h6>See all of our class offerings</h6></td>
+            <td style="padding:20px"></td>
+            <td><h6>See the classes you are enrolled in</h6></td>
+            <td style="padding:20px"></td>
+            <td><h6>Take a new class</h6></td>
+        </tr>
+    </table>
+
+</body>
+</html>
