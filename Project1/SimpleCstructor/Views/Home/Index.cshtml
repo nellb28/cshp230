@@ -1,12 +1,13 @@
-﻿@{
-    Layout = "~/Views/_BasicLayout.cshtml";
-}
+﻿@{Layout = "~/Views/_BasicLayout.cshtml";}
+@{ ViewBag.Title = "The Learning Center"; }
+@{ ViewBag.Message = "The place for technology classes."; }
+
 <!DOCTYPE html>
 
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>Index</title>
+    <title>@ViewBag.Title</title>
 
     <link href="~/Content/bootstrap.css" rel="stylesheet" />
     <style>

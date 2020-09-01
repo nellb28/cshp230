@@ -1,11 +1,14 @@
 ﻿@model IEnumerable<SimpleCstructor.Class>
 
 @{ Layout = "~/Views/_BasicLayout.cshtml"; }
+@{ ViewBag.Title = "Enroll in Class"; }
+@{ ViewBag.Message = "The place for technology classes."; }
+
 <!DOCTYPE html>
 
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>Enroll In Class</title>
+    <title>@ViewBag.Title</title>
 
     <link href="~/Content/bootstrap.css" rel="stylesheet" />
     <style>
@@ -55,6 +58,6 @@
                 <tr> No classes found.</tr>
             </table>}
     }
-    </body>
+</body>
 </html>
 

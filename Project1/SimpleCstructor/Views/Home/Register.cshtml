@@ -1,12 +1,13 @@
 ﻿@model SimpleCstructor.User
 @{ Layout = "~/Views/_BasicLayout.cshtml"; }
 @{ ViewBag.Title = "Register"; }
+@{ ViewBag.Message = "Create a new account."; }
 
 <!DOCTYPE html>
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>Register</title>
+    <title>@ViewBag.Title</title>
 
     <link href="~/Content/bootstrap.css" rel="stylesheet" />
     <style>
@@ -19,9 +20,8 @@
             background-color: #f1f1f1;
         }
     </style>
-    <h1>
-        Register
-    </h1>
+    <h1>@ViewBag.Title</h1>
+    <h2>@ViewBag.Message</h2>
 </head>
 <body>
 
@@ -64,4 +64,5 @@
         </div>
     }
 
-</body></html>
+</body>
+</html>
